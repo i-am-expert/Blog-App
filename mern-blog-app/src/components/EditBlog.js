@@ -60,20 +60,25 @@ export class EditBlog extends Component {
         .then(res => console.log(res.data))
         .catch(err => { console.log(err); })
 
-        window.location = '/' + id;
-        
+        window.location = '/' + id;        
+    }
+
+    handleCancel = (e) => {
+        const id = window.location.pathname.substring(14,);
+        window.location = '/' + id;   
     }
 
     render() {
         return (
             <div>
-                <h3>Edit Blog</h3> <br />
-                <form style={formStyle} onSubmit={this.onSubmit}>
+                <form style={formStyle} onSubmit={this.onSubmit} autoCorrect="off" autoComplete="off">
+                    <h3>Edit Blog</h3> <br />
                     <div className="form-group">
                         <label style={{fontSize: "18px"}} htmlFor="title">Title</label>
                         <input 
                             type="text" 
                             required 
+                            spellCheck="false"
                             className="form-control" 
                             id="title"
                             value={this.state.title}
@@ -85,6 +90,7 @@ export class EditBlog extends Component {
                         <input 
                             type="text" 
                             required
+                            spellCheck="false"
                             className="form-control" 
                             id="author" 
                             value={this.state.author}
@@ -96,6 +102,7 @@ export class EditBlog extends Component {
                         <textarea 
                             className="form-control"
                             required 
+                            spellCheck="false"
                             id="description" 
                             rows="5"
                             value={this.state.description}
@@ -103,7 +110,8 @@ export class EditBlog extends Component {
                         >
                         </textarea>
                     </div>
-                    <input type="submit" value="Submit" className="btn btn-primary" />  
+                    <input type="submit" value="Submit" className="btn btn-primary" style={btnStyle} />  
+                    <input type="submit" value="Cancel" className="btn btn-secondary" onClick={this.handleCancel} style={btnStyle} />  
                 </form>
             </div>
         )
@@ -113,6 +121,10 @@ export class EditBlog extends Component {
 const formStyle = {
     marginLeft: "15%",
     marginRight: "15%"
+}
+
+const btnStyle = {
+    marginRight: "1em"
 }
 
 export default EditBlog

@@ -30,6 +30,10 @@ class SingleBlog extends Component {
         })
     }
 
+    goBack = (e) => {
+        window.location = '/'
+    }
+
     render() {
         return (
             <div className="container" style={{paddingLeft: "100px", paddingRight: "100px"}}>
@@ -41,7 +45,8 @@ class SingleBlog extends Component {
                 <p>{this.state.blog.description}</p>
                 <div style={{display: "flex"}}>
                     <Link className="btn btn-primary btn-success" style={editLinkStyle} to={"/blogs/update/"+this.state.blog._id}>Edit</Link>
-                    <a href="/" onClick={() => { this.deleteBlog(this.state.blog._id) }} className="btn btn-primary btn-danger" style={{width: "10%"}}>Delete</a>
+                    <a href="/" onClick={() => { this.deleteBlog(this.state.blog._id) }} className="btn btn-primary btn-danger" style={{width: "10%", marginRight: "10px"}}>Delete</a>
+                    <input type="submit" value="Go Back" className="btn btn-secondary" onClick={this.goBack} style={{width: "12%"}}/>
                 </div>
             </div>
         )

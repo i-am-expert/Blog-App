@@ -4,7 +4,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Blog = props => (
-    <div className="container" style={{paddingLeft: "100px", paddingRight: "100px", marginBottom: "3rem"}}>
+    <div className="container" style={{paddingLeft: "100px", paddingRight: "100px", marginBottom: "4rem"}}>
         <div style={{display: "flex", flexDirection: "row", marginBottom: "10px"}}>
             <FaUserCircle size={34} style={{marginRight: "10px"}}/>
             <h6>Author : {props.blog.author}</h6>
