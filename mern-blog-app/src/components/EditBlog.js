@@ -64,6 +64,7 @@ export class EditBlog extends Component {
     }
 
     handleCancel = (e) => {
+        e.preventDefault();
         const id = window.location.pathname.substring(14,);
         window.location = '/' + id;   
     }
@@ -71,7 +72,7 @@ export class EditBlog extends Component {
     render() {
         return (
             <div>
-                <form style={formStyle} onSubmit={this.onSubmit} autoCorrect="off" autoComplete="off">
+                <form style={formStyle} autoCorrect="off" autoComplete="off">
                     <h3>Edit Blog</h3> <br />
                     <div className="form-group">
                         <label style={{fontSize: "18px"}} htmlFor="title">Title</label>
@@ -110,8 +111,8 @@ export class EditBlog extends Component {
                         >
                         </textarea>
                     </div>
-                    <input type="submit" value="Submit" className="btn btn-primary" style={btnStyle} />  
-                    <input type="submit" value="Cancel" className="btn btn-secondary" onClick={this.handleCancel} style={btnStyle} />  
+                    <input type="submit" value="Submit" className="btn btn-primary" onClick={this.onSubmit} style={btnStyle} />  
+                    <input type="submit" value="Cancel" className="btn btn-secondary" onClick={this.handleCancel} style={btnStyle} />   
                 </form>
             </div>
         )
